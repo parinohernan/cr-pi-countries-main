@@ -1,10 +1,10 @@
 const {Activities, Country} = require("../db");
 
 const postActivity = async (act, paises) => {
-    console.log("CONTROLLER");
+   // console.log("CONTROLLER");
     try {
         const newActivity = await Activities.create( act);
-        console.log("newactivities post CONTROLER", newActivity);
+        //console.log("newactivities post CONTROLER", newActivity);
     
         const associateCountries = await Country.findAll({
             where :{
