@@ -1,4 +1,4 @@
-const {getCountriesForAPI, getAllCountries} = require ('../controllers/getCountries')
+const {getCountriesForAPI, getAllCountries, getAllData} = require ('../controllers/getCountries')
 const {getCountriesById } = require ('../controllers/getCountriesById')
 const {getCountriesByName } = require ('../controllers/getCountriesByName')
 
@@ -11,7 +11,9 @@ const getCountriesHandler = async (req,res) => {
         res.status(201).json(countries);
        // res.send('buscare los paises que el nombre contenga '+name);
     } else {
-        const countries = await getAllCountries();
+        console.log("busco los paises con las actividades");
+        const countries = await getAllData();
+        //console.log(countries[0].dataValues);
         res.status(201).json(countries);
     }    
     } catch (error) {

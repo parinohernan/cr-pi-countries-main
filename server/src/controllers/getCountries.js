@@ -1,7 +1,8 @@
 const axios = require('axios')
 
 const URL_BASE = 'http://localhost:5000/countries'
-const {Country} = require("../db");
+const {Country, Activities} = require("../db");
+const { getActivities } = require('./Activities');
 
 const getCountriesForAPI =  async () => {
     try { 
@@ -36,16 +37,29 @@ const getCountriesForAPI =  async () => {
         }
 };
 
-const getAllCountries = async ( name ) => {
+
+const getAllData = async (name) => {
     try {
-        const countries = await Country.findAll();
-        return countries;
+        const countriesConActividad = await Country.findAll({
+          include: {
+            model: Activities,
+            attributes: ['nombre', 'dificultad','duracion','temporada'],
+            through: {
+              attributes: [] // Excluir los atributos de la tabla de enlace
+            }
+          }
+       });
+
+        return countriesConActividad;
     } catch (error) {
-        return ( error.message)
+        return error.message;
     }
 }
 
+
 module.exports = {
     getCountriesForAPI,
-    getAllCountries,
+    //getAllCountries,
+    getAllData,
+
 }
