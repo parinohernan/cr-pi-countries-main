@@ -1,0 +1,13 @@
+.divFitrosContainer{
+    /* color: aliceblue; */
+    background-color: brown;
+    border: 1px solid lightskyblue;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 20px;
+
+}

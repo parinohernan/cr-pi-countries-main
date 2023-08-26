@@ -1,10 +1,21 @@
-#root {
-  max-width: 1280px;
+
+/*
+
+ #root {
+
+  display: flex;
+  width: auto;
   margin: 0 auto;
-  padding: 2rem;
+
   text-align: center;
+  background-color: black;
 }
 
+.ppal {
+  margin: 0px;
+  display: flex;
+} */
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +50,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

@@ -1,0 +1,19 @@
+.divNavBar{
+    display:flex;
+    flex-direction: row;
+    background-color: rgba(24, 44, 38, 0.541); 
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Wendy One", sans-serif; 
+    text-decoration: none;
+    color: azure;
+   
+        font-size: x-large;
+    
+}
+.link{
+    font-family: "Wendy One", sans-serif; 
+    text-decoration: none;
+    color: azure;
+}

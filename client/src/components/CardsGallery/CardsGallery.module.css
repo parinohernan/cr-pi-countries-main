@@ -1,0 +1,21 @@
+.container{
+    border: 1px solid lightskyblue;
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 20px;
+
+}
+.controles{
+    border: 1px solid lightskyblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 20px;
+
+}
