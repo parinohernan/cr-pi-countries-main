@@ -3,7 +3,7 @@ const axios = require('axios')
 const URL_BASE = 'http://localhost:5000/countries'
 const {Country} = require("../db");
 
-const getCountries =  async () => {
+const getCountriesForAPI =  async () => {
     try { 
         const { data } = await axios(`${URL_BASE}`);
         console.log("data.continents",data[17].name, data[17].continents);
@@ -36,11 +36,16 @@ const getCountries =  async () => {
         }
 };
 
-const getCountriesByName = async ( name ) => {
-    return "bustcara los paises por nombre "+ name;
+const getAllCountries = async ( name ) => {
+    try {
+        const countries = await Country.findAll();
+        return countries;
+    } catch (error) {
+        return ( error.message)
+    }
 }
 
 module.exports = {
-    getCountries,
-    getCountriesByName,
+    getCountriesForAPI,
+    getAllCountries,
 }

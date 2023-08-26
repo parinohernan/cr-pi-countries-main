@@ -21,8 +21,16 @@ const postActivity = async (act, paises) => {
     }   
 }
 
+//Obtiene un arreglo de objetos, donde cada objeto es una actividad turística
 const getActivities = async () => {
-    return "bustcara las actividades ";
+    
+        try {
+            const activities = await Activities.findAll();
+            return activities;
+        } catch (error) {
+            return ( error.message)
+        }
+    
 }
 
 module.exports = {

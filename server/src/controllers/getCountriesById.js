@@ -3,7 +3,7 @@ const {Country, Activiti} = require("../db");
 const getCountriesById =  async (id) => {
     console.log("id ",id);
     try { 
-        const countrie = await Country.findOne({ where: { ID: id }})
+        const countrie = await Country.findOne({ where: { id: id }})
         if (countrie !== null) {
             // agrego las actividades del pais
             
