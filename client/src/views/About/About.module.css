@@ -1,10 +1,12 @@
 
 .contenedor {
-    width: 100%; /* Ancho del div contenedor */
+    width: 98%; /* Ancho del div contenedor */
     height: 200px; /* Alto del div contenedor */
     overflow: hidden; /* Oculta cualquier contenido que desborde el contenedor */
     position: relative; /* Permite posicionar elementos secundarios relativos a este contenedor */
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
   }
   
@@ -17,7 +19,7 @@
     background-image: url('../../../public/images/fondo-app.jpg') ; /* URL de tu imagen de fondo */
     background-repeat: repeat-y; /* Repite la imagen verticalmente */
     background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el div */
-    animation: scroll 20s linear infinite; /* Aplica una animación llamada 'scroll' */
+    animation: scroll 60s linear infinite; /* Aplica una animación llamada 'scroll' */
     z-index: -1; /* Coloca la imagen de fondo detrás del contenido */
   }
   
@@ -26,7 +28,7 @@
       transform: translateY(-80%); /* Comienza en la posición original (sin desplazamiento horizontal) */
     }
     50% {
-      transform: translateY(-50%); /* Termina desplazándose hacia arriva (puedes ajustar el valor según la velocidad deseada) */
+      transform: translateY(-30%); /* Termina desplazándose hacia arriva (puedes ajustar el valor según la velocidad deseada) */
     }
   }
   
