@@ -3,7 +3,7 @@ const {getCountriesById } = require ('../controllers/getCountriesById')
 const {getCountriesByName } = require ('../controllers/getCountriesByName')
 
 const getCountriesHandler = async (req,res) => {
-    // esta ruta maneja 2 subrutas una cinado mando name por querry y otra cuando no envio nada
+    // esta ruta maneja 2 subrutas una cuando manda name por querry y otra cuando no envio nada
     try {
     const {name} = req.query;
     if (name !== undefined) {

@@ -1,35 +1,43 @@
+/* Agrega estos estilos en tu archivo styles.css o equivalente */
 .card {
-    border-color: blue;
-    border-radius: 10px;
-    border: solid 3px;
-    max-width: 10em;
-    max-height: 30em; 
-    min-height: 10em;
-    min-width: 10em;
-    /* height: fit-content; */
-    /* display: flexbox; */
-    align-items: center;
-    flex-direction: column;
+    color: rgb(66, 66, 66);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
     margin: 10px;
-    background: #1974ca52;
-    background-position: top;
-    position:relative;
-    cursor: pointer;
-    transition: 0.5s;
-    padding: 10px;
-    font-size: 14px; 
-} 
-.link{
-    font-family: "Wendy One", sans-serif; 
+    background-color: white;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .link {
     text-decoration: none;
-    color: azure;
-}
-.flag{
-    padding: 20px;
-    min-width: 60px;
-    min-height: 60px;
-    min-height: auto;
-    max-width: 100px;
-    max-height: 60px;
+    color: #333;
+  }
+  
+  .flag {
+    width: auto;
+    height: auto;
+    object-fit: cover;
 
-}
+    height:110px; /* Ajusta según tus necesidades */
+  }
+  
+  .textCard {
+    padding: 10px;
+  }
+  
+  .h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+  

@@ -1,19 +1,32 @@
-.divNavBar{
-    display:flex;
-    flex-direction: row;
-    background-color: rgba(24, 44, 38, 0.541); 
+.divBusqueda {
+  display: flex;
+  
+  color: rgb(66, 66, 66);
+
+}
+
+.divNavBar {
+    display: flex;
     justify-content: space-around;
-    margin: 0px;
-    padding: 0px;
-    font-family: "Wendy One", sans-serif; 
+    align-items: center;
+    background-color:yellow;
+    height: 60px;
+  }
+  
+  .btn {
     text-decoration: none;
-    color: azure;
-   
-        font-size: x-large;
-    
-}
-.link{
-    font-family: "Wendy One", sans-serif; 
-    text-decoration: none;
-    color: azure;
-}
+    color: rgb(66, 66, 66);
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #1565c0;
+  }
+  
+  h2 {
+    margin: 0;
+  }
+  

@@ -1,33 +1,39 @@
 import { Link } from "react-router-dom";
-
-//import logo from "../../img/logo.png";
-
+import { filterPaisByName } from "../../redux/action";
 import style from "./NavBar.module.css";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  // const navigate = useNavigate();
-  //const listRef = useRef(null);
+  const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  const handleFilterByName = (e) => {
+    dispatch(filterPaisByName(e.target.value));
+  };
 
   return (
-    <nav className={style.navbar}>
+    <nav>
       <div className={style.divNavBar}>
-        <Link className={style.btn} to="/home">
-          Home
-        </Link>
-
+        {location.pathname !== "/home" && (
+          <Link className={style.btn} to="/home">
+            <h2>Home</h2>
+          </Link>
+        )}
+        {location.pathname === "/home" && (
+          <div className={style.divBusqueda}>
+            <h2>Busqueda :</h2>
+            <input type="text" onChange={handleFilterByName} />
+          </div>
+        )}
         <Link className={style.btn} to="/create">
-          Crear Actividad
+          <h2>Crear Actividad</h2>
         </Link>
 
         <Link className={style.btn} to="/about">
-          About
+          <h2>About</h2>
         </Link>
-
-        {/* <div className={style.containerMenu}>
-          <a onClick={handleOnClick} href="#">
-            <i className={`fa-solid fa-bars ${style.btnMenu}`}></i>
-          </a>
-        </div> */}
       </div>
     </nav>
   );

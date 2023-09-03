@@ -12,8 +12,8 @@ const getActivitiesHandler = async(req, res) => {
 const postActivityHandler = async(req, res) => {
     try {
         //console.log("hola req",req.body);
-        const {nombre, dificultad, duracion, temporada, pais} = req.body;
-        if ( !nombre || !dificultad || !duracion || !temporada || !pais) {
+        const {nombre, dificultad, duracion, temporada, paises} = req.body;
+        if ( !nombre || !dificultad || !duracion || !temporada || !paises) {
             res.status(404).json({error: "faltan datos"})
         }
         const newActivity = {
@@ -23,7 +23,7 @@ const postActivityHandler = async(req, res) => {
             temporada: temporada,
         }
        // console.log("objeto activitie en handler: ",newActivity);
-        const Activity = await postActivity(newActivity, pais);
+        const Activity = await postActivity(newActivity, paises);
         res.status(201).json(Activity);
     } catch (error) {
         res.status(404).json({error: error.menssage})

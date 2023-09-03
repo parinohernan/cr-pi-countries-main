@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import BarraFiltros from "../../components/BarraFiltros/BarraFiltros";
+import BarraOrden from "../../components/BarraOrden/BarraOrden";
 import CardsGallery from "../../components/CardsGallery/CardsGallery";
 import { useDispatch } from "react-redux";
 import { getCountries } from "../../redux/action";
@@ -17,7 +18,10 @@ const Home = () => {
       <div>
         <CardsGallery />
       </div>
-      <BarraFiltros />
+      <div>
+        <BarraFiltros />
+        <BarraOrden />
+      </div>
     </div>
   );
 };

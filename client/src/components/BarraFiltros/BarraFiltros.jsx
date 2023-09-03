@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import style from "./BarraFiltros.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
-  filterPaisByName,
+  // filterPaisByName,
   filterContinente,
   filterActividad,
 } from "../../redux/action";
@@ -19,23 +20,30 @@ const BarraFiltros = () => {
     "North America",
   ];
 
-  const actividades = [
-    "Todas",
-    "Pesca",
-    "Buseo",
-    "Mundial Futbol",
-    "Chess word cup",
-  ];
+  const countries = useSelector((state) => state.countries);
+
+  const allActivities = ["Todas"];
+
+  const obtenerAllActivities = countries.map((country) => {
+    if (country.Activities.length !== 0) {
+      for (let i = 0; i < country.Activities.length; i++) {
+        const element = country.Activities[i];
+        allActivities.push(element.nombre);
+      }
+    }
+  });
+
+  // Utilizar un Set para eliminar duplicados
+  const set = new Set(allActivities);
+  const array2 = [...set];
+
+  const actividades = array2;
 
   const [selectedContinente, setSelectedContinente] = useState("Todos");
 
   const [selectedActividad, setSelectedActividad] = useState("Todas");
 
   const dispatch = useDispatch();
-
-  const handleFilterByName = (e) => {
-    dispatch(filterPaisByName(e.target.value));
-  };
 
   const handleContinenteChange = (event) => {
     const value = event.target.value;
@@ -45,20 +53,17 @@ const BarraFiltros = () => {
 
   const handleActividadChange = (event) => {
     const value = event.target.value;
-    setSelectedContinente(value);
+    setSelectedActividad(value);
     dispatch(filterActividad(value));
   };
 
   return (
     <div className={style.divFitrosContainer}>
-      <div className="divFiltroPais">
-        <div>
-          <label>Pais:</label>
-        </div>
-        <input type="text" onChange={handleFilterByName} />
+      <div>
+        <h2>filtros</h2>
       </div>
 
-      <div className="divFiltroContinente">
+      <div className={style.divFitrosContinente}>
         <div>
           <label>Continente:</label>
         </div>
@@ -71,7 +76,7 @@ const BarraFiltros = () => {
         </select>
       </div>
 
-      <div className="divFiltroActividad">
+      <div className={style.divFitrosActividad}>
         <div>
           <label>Actividad:</label>
         </div>
@@ -88,10 +93,3 @@ const BarraFiltros = () => {
 };
 
 export default BarraFiltros;
-
-{
-  /* <div>
-    <label>Actividad:</label>
-    <input type="text" onChange={handleFilterByName} />
-  </div> */
-}

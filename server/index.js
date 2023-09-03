@@ -13,10 +13,12 @@ const axios = require("axios"); // Importa el módulo axios para realizar solici
 const server = require("./src/server"); // Importa tu servidor Express desde server.js
 const { conn } = require('./src/db.js'); // Importa la instancia de la base de datos de db.js
 const PORT = 3001; // Define el puerto en el que deseas que el servidor escuche
+const {getCountriesForAPI} = require('./src/controllers/getCountries')
 
-conn.sync({ alter: true }) // Sincroniza FORCE : TRUE la base de datos, forzando la creación de tablas. FALCE
+conn.sync({ force: true }) // Sincroniza FORCE : TRUE la base de datos, forzando la creación de tablas. FALCE
   .then(() => {
     server.listen(PORT, () => {
+      getCountriesForAPI(); //cargo los paises desde la API a mi BDD
       console.log(`Server listening on port ${PORT}`);
     });
   })

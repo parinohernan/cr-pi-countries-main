@@ -1,4 +1,6 @@
 body {
+  text-shadow:10dvi;
+  color: beige;
   margin: 0;
 }
 
@@ -24,8 +26,10 @@ body {
   } 
   
   .enter-button {
-    background-color: #007bff;
-    color: #fff;
+    
+    text-decoration: none;
+    background-color: yellow;
+    color: #242424;
     border: none;
     padding: 10px 20px;
     font-size: 18px;

@@ -48,6 +48,8 @@ function CardGallery() {
             key={card.id}
             id={card.id}
             name={card.name}
+            population={card.population.toLocaleString()}
+            area={card.area.toLocaleString()}
             continents={card.continents}
             flag={card.flag}
             data={card}

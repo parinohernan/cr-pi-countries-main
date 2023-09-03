@@ -2,7 +2,7 @@
     color: aquamarine;
 } */
 
-.divFitrosContainer{
+.divOrdenContainer{
     /* color: aliceblue; 
     background-color: brown;*/
     border: 1px solid lightskyblue;
@@ -17,7 +17,7 @@
 
 }
 
-.divFitrosContinente{
+.divOrdenPoblacion{
     color: rgb(66, 66, 66);
     /*background-color: brown;*/
     /* border: 1px solid lightskyblue; */
@@ -30,7 +30,7 @@
     margin: 20px;
 
 }
-.divFitrosActividad{
+.divOrdenArea{
     color: rgb(66, 66, 66);
     /*background-color: brown;*/
     /* border: 1px solid lightskyblue; */

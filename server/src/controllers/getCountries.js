@@ -2,12 +2,12 @@ const axios = require('axios')
 
 const URL_BASE = 'http://localhost:5000/countries'
 const {Country, Activities} = require("../db");
-const { getActivities } = require('./Activities');
+//const { getActivities } = require('./Activities');
 
 const getCountriesForAPI =  async () => {
     try { 
         const { data } = await axios(`${URL_BASE}`);
-        console.log("data.continents",data[17].name, data[17].continents);
+        //console.log("data.continents",data[17].name, data[17].continents);
         const filtredData = data.map( (countrie) => {
             let cap = "";
             if (countrie.hasOwnProperty("capital")) {
@@ -38,7 +38,7 @@ const getCountriesForAPI =  async () => {
 };
 
 
-const getAllData = async (name) => {
+const getAllData = async () => {
     try {
         const countriesConActividad = await Country.findAll({
           include: {
