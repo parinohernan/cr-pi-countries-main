@@ -29,26 +29,26 @@ const AccordionItem = () => {
           <p>
             El proyecto <b> HENRY COUNTRIES</b>, es un trabajo individual del
             bootcamp FULLSTACK de{" "}
-            <a href="https://www.soyhenry.com/">SOYHENRY</a>. Se trata de una
+            <a href="https://www.soyhenry.com/"> SOYHENRY</a>. Se trata de una
             pagina web que muestra los datos principales de los distintos paises
-            del mundo. Para hacerlo utiliza su propio servidor{" "}
-            <a href="https://nodejs.org/en">NODE JS</a>api rest conectado a su
+            del mundo. Para hacerlo utiliza su propio servidor
+            <a href="https://nodejs.org/en"> NODE JS </a>api rest conectado a su
             propia base de datos. En primer lugar el SERVIDOR EXPRESS obtiene
             los datos de una appi json brindada por Henry, esos datos son
-            fintrados y transformados, guardandolos en la base de datos{" "}
-            <a href="https://www.postgresql.org/">POSTGRESSQL</a> adaptados al
+            fintrados y transformados, guardandolos en la base de datos
+            <a href="https://www.postgresql.org/"> POSTGRESSQL</a> adaptados al
             tipo y forma que necesita nuestro HENRY COUNTRIES. Este SERVIDOR
             EXPRESS recibe las distintas peticiones desde el frontend y manipula
-            las tablas de la BDD utilizando{" "}
-            <a href="https://sequelize.org/">SEQUELIZE</a>. Las distintas
-            peticiones fueron testeadas usando{" "}
-            <a href="https://www.postman.com/">POSTMAN</a>. HENRY COUNTRIES es
+            las tablas de la BDD utilizando
+            <a href="https://sequelize.org/"> SEQUELIZE</a>. Las distintas
+            peticiones fueron testeadas usando
+            <a href="https://www.postman.com/"> POSTMAN</a>. HENRY COUNTRIES es
             el nombre que le di a mi frontend. Se encuentra mayormente
-            programado utilizando la libreria{" "}
-            <a href="https://react.dev/">REACT JS</a>, todas las peticiones al
-            backend las realiza desde{" "}
-            <a href="https://redux.js.org/">REDUX JS</a>. El diseño simple y sus
-            colores es en parte un homenaje a la plataforma de SOY HENRY.
+            programado utilizando la libreria
+            <a href="https://react.dev/"> REACT JS</a>, todas las peticiones al
+            backend las realiza desde
+            <a href="https://redux.js.org/"> REDUX JS</a>. El diseño simple y
+            sus colores es en parte un homenaje a la plataforma de SOY HENRY.
           </p>
         </div>
       )}
