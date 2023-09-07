@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import About from "./views/About/About";
-
+import Error from "./views/Error/Error";
 function App() {
   const location = useLocation();
 
@@ -24,6 +24,10 @@ function App() {
           <Route path="/create" element={<Form />} />
           <Route path="/about" element={<About />} />
           <Route path="/details/:id" element={<Details />} />
+          {/* era ruta es para el manejo de errores */}
+          <Route path="/error404" element={<Error />} />
+          {/* Ruta "fallback" para cualquier otra ruta no coincidente */}
+          <Route path="*" element={<Error />} />
         </Routes>
       </Provider>
     </div>

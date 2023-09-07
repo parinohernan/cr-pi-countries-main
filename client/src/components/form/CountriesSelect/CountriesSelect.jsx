@@ -1,25 +1,34 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { setSelectedCountries } from "../../../redux/action";
 import style from "./CountriesSelect.module.css";
 import ListaSelected from "../ListaSelected/ListaSelected";
+import { useDispatch, useSelector } from "react-redux";
 
-const CountrySelect = ({ onSelectCountry }) => {
+const CountrySelect = () => {
+  // antes tenia esto { onSelectCountry } traigo la el handlecountriesselec  para agregar los paises al estado local de  form
   const allCountries = useSelector((state) => state.allCountries);
-  const [selectedCountries, setSelectedCountries] = useState([]);
+  const dispatch = useDispatch();
+  const selectedCountries = useSelector((state) => state.selectedCountries);
 
   const handleCountrySelect = (event) => {
-    const selectedOptions = event.target.value;
-    const selectedCountryIds = [...selectedCountries, selectedOptions];
-    if (!selectedCountries.includes(selectedOptions)) {
-      setSelectedCountries(selectedCountryIds);
+    const selectedOption = event.target.value;
+    // Verifica si el país ya está en la lista seleccionada
+    if (selectedCountries.includes(selectedOption)) {
+      // Si ya está, lo elimina
+
+      const updatedSelectedCountries = selectedCountries.filter(
+        (country) => country !== selectedOption
+      );
+      dispatch(setSelectedCountries(updatedSelectedCountries));
+    } else {
+      // Si no está, lo agrega
+      dispatch(setSelectedCountries([...selectedCountries, selectedOption]));
     }
-    console.log("countries", selectedCountryIds);
-    onSelectCountry(selectedCountryIds); //estoy enviando lo mismo al estado local y al onselect- porque si al onselect le envio el estado me queda el ultimo pais sin enviar (por demoras)
+    //console.log("countrieselegidos", selectedCountries);
   };
 
   return (
     <div>
-      <p>Paises:</p>
       <div className={style.PaisesSelect}>
         <select className={style.select} multiple>
           {allCountries.map((pais) => (

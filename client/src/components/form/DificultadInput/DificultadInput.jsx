@@ -12,7 +12,6 @@ const DificultadInput = ({ onLevelSelect }) => {
 
   return (
     <div>
-      <p>Dificultad:</p>
       <div className={styles["level-selector"]}>
         {[1, 2, 3, 4, 5].map((level) => (
           <button

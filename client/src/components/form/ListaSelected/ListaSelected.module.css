@@ -1,0 +1,10 @@
+
+.divSeleccionados{
+    display: flex;
+    flex-wrap: wrap;
+}
+.pequeFlag{
+     max-width: 32px;
+     max-height: 18px;
+     object-fit:fill;
+}

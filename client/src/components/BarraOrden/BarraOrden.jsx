@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import style from "./BarraOrden.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { orderByPopulation, orderByArea } from "../../redux/action";
 
 const BarraOrden = () => {
   const [ordenTamaño, setOrdenTamaño] = useState("Aleatorio");
-
+  const error = useSelector((state) => state.error);
   const [ordenPoblacion, setOrdenPoblacion] = useState("Aleatorio");
 
   const dispatch = useDispatch();
@@ -34,28 +34,33 @@ const BarraOrden = () => {
     }
     // console.log("tamañ", ordenTamaño); //tiene una demora el estado no alcanza a reflejarse
   };
+  if (!error) {
+    return (
+      <div className={style.divOrdenContainer}>
+        {/* <div>
+          <h2>orden</h2>
+        </div> */}
 
-  return (
-    <div className={style.divOrdenContainer}>
-      <div>
-        <h2>orden</h2>
-      </div>
-
-      <div className={style.divOrdenContinente}>
-        <div>
-          <label>Poblacion orden por {ordenPoblacion}:</label>
+        <div className={style.divOrdenContinente}>
+          <div>
+            <h3 className={style.h3Order}>
+              Ordenar poblacion {ordenPoblacion.toLocaleLowerCase()}:
+            </h3>
+            <button onClick={handlePoblacionOnClick}>↹</button>
+          </div>
         </div>
-        <button onClick={handlePoblacionOnClick}>↹</button>
-      </div>
 
-      <div className={style.divOrdenActividad}>
-        <div>
-          <label>Tamaño orden por {ordenPoblacion}:</label>
+        <div className={style.divOrdenActividad}>
+          <div>
+            <h3 className={style.h3Order}>
+              Orden por tamaño {ordenTamaño.toLocaleLowerCase()}:
+            </h3>
+            <button onClick={handleTamañoOnClick}>↹</button>
+          </div>
         </div>
-        <button onClick={handleTamañoOnClick}>↹</button>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default BarraOrden;

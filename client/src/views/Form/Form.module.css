@@ -37,6 +37,11 @@ div{
     align-items:flex-start;
     justify-content: space-around;
   }
+
+  .error {
+    background-color: black;
+    color: red;
+  }
   
   .divImput,
   .divPaises {
@@ -53,6 +58,18 @@ div{
   }
   
   .divPaises {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .divPaisesSelect {
+    background-color: beige;
+    margin: 2em;
+    border-radius: 10px;
+    width: 30%;
+    font-family: "Wendy One", sans-serif;
+    text-decoration: none;
+    color: rgb(66, 66, 66);
     flex-direction: row;
     justify-content: space-around;
   }

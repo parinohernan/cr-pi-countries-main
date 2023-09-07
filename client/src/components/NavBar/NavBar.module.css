@@ -11,11 +11,24 @@
     align-items: center;
     background-color:yellow;
     height: 60px;
+    margin: -15px;
   }
   
+  .divLogo {
+    margin: 0;
+    
+   }
+
+  .header {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
   .btn {
     text-decoration: none;
-    color: rgb(66, 66, 66);
+    color: rgb(0, 0, 0);
     font-size: 18px;
     padding: 10px 20px;
     border-radius: 5px;
@@ -23,7 +36,8 @@
   }
   
   .btn:hover {
-    background-color: #1565c0;
+    border-radius: 30px;
+    border: solid black 6px;
   }
   
   h2 {

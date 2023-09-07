@@ -21,11 +21,12 @@ const BarraFiltros = () => {
   ];
 
   const countries = useSelector((state) => state.countries);
+  const error = useSelector((state) => state.error);
 
   const allActivities = ["Todas"];
 
   const obtenerAllActivities = countries.map((country) => {
-    if (country.Activities.length !== 0) {
+    if (country.Activities && country.Activities.length !== 0) {
       for (let i = 0; i < country.Activities.length; i++) {
         const element = country.Activities[i];
         allActivities.push(element.nombre);
@@ -57,39 +58,41 @@ const BarraFiltros = () => {
     dispatch(filterActividad(value));
   };
 
-  return (
-    <div className={style.divFitrosContainer}>
-      <div>
-        <h2>filtros</h2>
-      </div>
+  if (!error) {
+    return (
+      <div className={style.divFitrosContainer}>
+        {/* <div>
+          <h2>Filtro</h2>
+        </div> */}
 
-      <div className={style.divFitrosContinente}>
-        <div>
-          <label>Continente:</label>
+        <div className={style.divFitrosContinente}>
+          <div>
+            <label>Continente:</label>
+          </div>
+          <select value={selectedContinente} onChange={handleContinenteChange}>
+            {continentes.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
-        <select value={selectedContinente} onChange={handleContinenteChange}>
-          {continentes.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
 
-      <div className={style.divFitrosActividad}>
-        <div>
-          <label>Actividad:</label>
+        <div className={style.divFitrosActividad}>
+          <div>
+            <label>Actividad:</label>
+          </div>
+          <select value={selectedActividad} onChange={handleActividadChange}>
+            {actividades.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
-        <select value={selectedActividad} onChange={handleActividadChange}>
-          {actividades.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div> //divFiltrosContainer
-  );
+      </div> //divFiltrosContainer
+    );
+  }
 };
 
 export default BarraFiltros;

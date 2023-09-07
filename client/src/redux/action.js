@@ -8,6 +8,22 @@ export const GET_COUNTRY_DETAIL = "GET_COUNTRY_DETAIL";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const ORDER_BY_AREA = "ORDER_BY_AREA";
+export const SET_CURRENT_PAGE ="SET_CURRENT_PAGE";
+export const FETCH_ERROR = "FETCH_ERROR";
+export const SET_SELECTED_COUNTRIES = "SET_SELECTED_COUNTRIES"
+// export const FETCH_SUCCESS= "FETCH_SUCCESS";
+
+export const setCurrentPage =(payload)=>{
+    //console.log("action");
+    return  {type: SET_CURRENT_PAGE,
+                payload}
+}
+
+export const setSelectedCountries =(payload)=>{
+    // console.log("action",payload);
+    return  {type: SET_SELECTED_COUNTRIES,
+                payload}
+}
 
 export const getCountries = () => {
     
@@ -16,7 +32,7 @@ export const getCountries = () => {
             let countries = await axios.get("http://localhost:3001/countries");
             return dispatch({type: GET_COUNTRIES, payload: countries.data } );
         } catch (error) {
-            console.log("error action ",error.message);
+            return dispatch({ type: 'FETCH_ERROR', payload: error.message });
         }
     };
 };
@@ -29,22 +45,23 @@ export const getCountryDetail = (id) => {
             console.log("http://localhost:3001/countries/",id);
             return dispatch({type: GET_COUNTRY_DETAIL, payload: country.data } );
         } catch (error) {
-            console.log("error action ",error.message);
+            //console.log("error action ",error.message);
+            return dispatch({ type: 'FETCH_ERROR', payload: error.message });
         }
     };
 };
 
 
 export const postActivity = (payload) => {
-    console.log("paiload",payload);
-    console.log("paises", payload.paises);
+    // console.log("paiload",payload);
+    // console.log("paises", payload.paises);
     return async () => {
       try {
         let activity = await axios.post("http://localhost:3001/activities", payload);
         return activity.data; 
       } catch (error) {
         console.log("error action ", error.message);
-        throw error; // Lanza el error nuevamente para manejarlo en otro lugar si es necesario
+        return dispatch({ type: 'FETCH_ERROR', payload: error.message });
       }
     };
   };
@@ -58,6 +75,7 @@ export const filterPaisByName = (nombre) => {
         return dispatch({type: FILTER_BY_NAME, payload: countries.data } );
     } catch (error) {
         console.log("error action ",error.message);
+        return dispatch({ type: 'FETCH_ERROR', payload: error.message });
     }
 };
 };

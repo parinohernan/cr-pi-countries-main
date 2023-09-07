@@ -7,7 +7,6 @@ const {Country, Activities} = require("../db");
 const getCountriesForAPI =  async () => {
     try { 
         const { data } = await axios(`${URL_BASE}`);
-        //console.log("data.continents",data[17].name, data[17].continents);
         const filtredData = data.map( (countrie) => {
             let cap = "";
             if (countrie.hasOwnProperty("capital")) {
@@ -29,9 +28,7 @@ const getCountriesForAPI =  async () => {
             }
         })
         let insertedCountries = await Country.bulkCreate(filtredData);
-        return ("Se completo la carga de " + insertedCountries.length + " countries" ) 
-
-        
+        return ("Se completo la carga de " + insertedCountries.length + " countries" )        
     } catch(error) {
             return ( error.message)
         }

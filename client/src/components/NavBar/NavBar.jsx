@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { filterPaisByName } from "../../redux/action";
+import { filterPaisByName, setCurrentPage } from "../../redux/action";
 import style from "./NavBar.module.css";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -11,10 +11,16 @@ const Navbar = () => {
 
   const handleFilterByName = (e) => {
     dispatch(filterPaisByName(e.target.value));
+    dispatch(setCurrentPage(1));
   };
 
   return (
     <nav>
+      <Link className={style.header} to="/home">
+        <div className={style.divLogo}>
+          <img src="../../../public/images/Logo.png" alt="" />
+        </div>
+      </Link>
       <div className={style.divNavBar}>
         {location.pathname !== "/home" && (
           <Link className={style.btn} to="/home">

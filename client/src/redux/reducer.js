@@ -1,15 +1,33 @@
 const initialState = {
   countries: [],
   allCountries: [],
-  detail: {}
+  detail: {},
+  currentPage: 1, //maneja la pagina que se muestra en el CardsGallery
+  selectedCountries:[],
+  error: null     //es para mostrar el mensaje error404 en caso que el server
 }
 
-import { GET_COUNTRIES, FILTER_BY_NAME, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY, GET_COUNTRY_DETAIL, POST_ACTIVITY, ORDER_BY_AREA, ORDER_BY_POPULATION } from "./action";
+import { GET_COUNTRIES, FILTER_BY_NAME, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY, GET_COUNTRY_DETAIL, POST_ACTIVITY, ORDER_BY_AREA, ORDER_BY_POPULATION, SET_CURRENT_PAGE, FETCH_ERROR, SET_SELECTED_COUNTRIES } from "./action";
 
 const rootReducer = (state = initialState, action) => {
   //console.log("en  REDUCER",action);  
   const allCountries = state.allCountries;
   switch (action.type){
+        case SET_CURRENT_PAGE:
+              return {
+                ...state,
+                currentPage: action.payload,
+              };
+        case SET_SELECTED_COUNTRIES:
+          return {
+            ...state,
+            selectedCountries: action.payload,
+          };
+        case FETCH_ERROR:
+          return {
+            ...state,
+            error: action.payload,
+          };
         case GET_COUNTRIES:
           return { ...state, 
             countries: action.payload,
@@ -31,6 +49,7 @@ const rootReducer = (state = initialState, action) => {
           return {...state, countries: action.payload}
 
         case FILTER_BY_CONTINENT:
+          //console.log("continen",action);
           const filtered = action.payload === "Todos" ?
           allCountries 
           : 
