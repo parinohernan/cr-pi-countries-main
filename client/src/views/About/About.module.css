@@ -1,4 +1,18 @@
 
+.link {
+  color: #4498C6;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.aboutMeContainer{
+  font-family: cursive;
+  color: black;
+  background-color: yellow;
+}
+
 .contenedor {
     width: 98%; /* Ancho del div contenedor */
     height: 200px; /* Alto del div contenedor */
