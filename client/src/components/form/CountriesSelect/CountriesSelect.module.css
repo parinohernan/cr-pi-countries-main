@@ -1,8 +1,6 @@
-.paisesSelect {
-    background-color: aquamarine;
-    width: 100%;
-}
+
 select{
+    margin: 10px;
     width: 255px
 }
 

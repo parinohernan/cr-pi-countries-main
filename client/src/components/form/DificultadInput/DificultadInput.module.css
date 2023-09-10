@@ -5,4 +5,8 @@
     font-weight: bold; /* Puedes aumentar el peso de la fuente para resaltar */
     border: none; /* Puedes eliminar el borde del botón seleccionado */
   }
+
+.botones{
+  margin: 15px;
+}
   

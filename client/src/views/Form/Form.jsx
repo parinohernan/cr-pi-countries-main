@@ -103,9 +103,9 @@ const Form = () => {
           <h2 className={style.subTitle}>Nueva actividad:</h2>
           <div className={style.divActividadConteiner}>
             <div className={style.divImput}>
-              <div>
+              <div className={style.divF}>
                 <label>Nombre</label>
-                <div>
+                <div className={style.divF}>
                   <input
                     onChange={changeNombreHandler}
                     value={datosForm.nombre}
@@ -117,7 +117,7 @@ const Form = () => {
                   {formErrors.nombre !== "" && formErrors.nombre}
                 </p>
               </div>
-              <div>
+              <div className={style.divF}>
                 <label>Dificultad: </label>
                 <DificultadInput onLevelSelect={handleDificultadSelect} />
                 <p className={style.error}>
@@ -125,9 +125,9 @@ const Form = () => {
                 </p>
                 {/* {console.log("dificultad err ", formErrors)} */}
               </div>
-              <div>
+              <div className={style.divF}>
                 <label>Duracion :</label>
-                <div>
+                <div className={style.duracionInput}>
                   <input
                     onChange={changeHandler}
                     value={datosForm.duracion}
@@ -141,7 +141,7 @@ const Form = () => {
               </div>
               <div>
                 <label>Temporada: </label>
-                <div>
+                <div className={style.temporadaInput}>
                   <select
                     onChange={changeHandler}
                     value={datosForm.temporada}

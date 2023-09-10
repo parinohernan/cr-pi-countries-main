@@ -18,7 +18,7 @@ const Home = () => {
       <div>
         <CardsGallery />
       </div>
-      <div>
+      <div className={styles.homeFyO}>
         <BarraFiltros />
         <BarraOrden />
       </div>

@@ -1,6 +1,4 @@
-div{
-    margin: 5px;
-}
+
 
 .subTitle {
     margin-top: 20px;
@@ -43,6 +41,16 @@ div{
     color: red;
   }
   
+  .duracionInput {
+    
+    margin: 10px;
+  }
+
+  .temporadaInput {
+    
+    margin: 10px;
+  }
+
   .divImput,
   .divPaises {
     background-color: beige;

@@ -9,6 +9,13 @@ module.exports = (sequelize) => {
       allowNull: false,
       //defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
+      validate: {
+        isThreeCharacters(value) {
+          if (value.length !== 3) {
+            throw new Error('El campo "id" debe tener exactamente 3 caracteres.');
+          }
+        },
+      },
     },
     name: {
       type: DataTypes.STRING,

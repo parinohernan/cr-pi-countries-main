@@ -11,7 +11,7 @@
     align-items: center;
     background-color:yellow;
     height: 60px;
-    margin: -15px;
+    margin: -15;  
   }
   
   .divLogo {
@@ -20,6 +20,7 @@
    }
 
   .header {
+    margin: -15px;
     text-decoration: none;
     display: flex;
     justify-content: center;
